@@ -1,0 +1,23 @@
+---
+# tasks file for sawtooth
+- name: Deploy docker compose template
+  template:
+    src: sawtooth.yaml
+    dest: "{{ INSTALL_DIR }}/sawtooth.yaml"
+
+- name: Cleanup dirs
+  file:
+    path: "{{ INSTALL_DIR_DATA }}"
+    state: absent
+
+- name: Create dir structures
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - "{{ INSTALL_DIR_DATA }}/settings-tp"
+    - "{{ INSTALL_DIR_DATA }}/intkey-tp"
+    - "{{ INSTALL_DIR_DATA }}/xo-tp"
+    - "{{ INSTALL_DIR_DATA }}/validator-root"
+    - "{{ INSTALL_DIR_DATA }}/validator-var"
+

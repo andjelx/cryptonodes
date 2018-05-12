@@ -1,0 +1,4 @@
+---
+# defaults file for sawtooth
+INSTALL_DIR: /home/ubuntu
+INSTALL_DIR_DATA: "{{ INSTALL_DIR }}/data"
