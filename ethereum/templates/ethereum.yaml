@@ -1,0 +1,13 @@
+#
+version: "2.1"
+
+services:
+  ethereum:
+    image: ethereum/client-go
+    container_name: ethereum
+    volumes:
+      - {{ INSTALL_DIR_DATA }}/ether:/root/.ethereum
+    expose:
+      - 30303
+    ports:
+      - "30303:30303"

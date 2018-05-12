@@ -1,0 +1,15 @@
+---
+# tasks file
+- name: Deploy docker compose template
+  template:
+    src: ethereum.yaml
+    dest: "{{ INSTALL_DIR }}/ethereum.yaml"
+
+- name: Create dir structures
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: a+rX
+  with_items:
+    - "{{ INSTALL_DIR_DATA }}/ether"
+

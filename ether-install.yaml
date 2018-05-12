@@ -1,0 +1,10 @@
+---
+- name: "Configure server(s)"
+  hosts: "nodes"
+  become: True
+  user: ubuntu
+
+  roles:
+    - { role: "ansible-docker", tags: "docker" }
+    - { role: "ethereum" }
+

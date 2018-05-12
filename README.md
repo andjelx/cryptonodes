@@ -1,11 +1,11 @@
 # cryptonodes
 
-Install sawtooth.
+## Install sawtooth.
 
 * Create new server and make sure python installed.
 Update inventory/nodes with server IP.
 
-* Invoke deployment
+* Invoke deployment (example)
 ```
 $ ansible-playbook -i inventory/nodes --key-file=~/.ssh/crowdNurse_2016 sawtooth-install.yaml
 ```
@@ -30,3 +30,19 @@ $ docker-compose -f sawtooth.yaml down
 ```
 
 See also: https://sawtooth.hyperledger.org/docs/core/releases/1.0/app_developers_guide/docker.html#logging-into-the-client-container
+
+
+## Install Ethereum
+
+* Invoke deployment (example)
+```
+$ ansible-playbook -i inventory/nodes --key-file=~/.ssh/crowdNurse_2016 ethereum-install.yaml
+```
+
+* Run on server
+```
+$ docker-compose -f ethereum.yaml up -d
+```
+
+All other same as above.
+Ethereum cache is stored under: "{{ INSTALL_DIR }}/data/ether"
